@@ -1,29 +1,38 @@
+//Variables
 const display = document.querySelector('#display')
-const total = document.querySelector('#total')
-const billInput = document.querySelector('#bill')
-const tipInput = document.querySelector('#tip')
-const peopleInput = document.querySelector('#people')
+const walking = document.querySelector('walking')
+const driving = document.querySelector('driving')
+const flying = document.querySelector('flying')
+const distance = document.querySelector('distance')
 
+walking.addEventListener('input', calculateDistance)
+driving.addEventListener('input', calculateDistance)
+flying.addEventListener('input', calculateDistance)
+distance.addEventListener('input', calculateDistance)
 
+const distanceValue = distance.value
 
-function calculateTip() {
-    const billValue = parseInt(billInput.value) 
-    const tipValue = parseInt(tipInput.value)
-    const peopleValue = parseInt(peopleInput.value)
-    
-    const tipAmount = ((billValue * tipValue) / 100) / peopleValue
-    const totalAmount = parseInt(billValue) + ((billValue * tipValue) / 100)
+function calculateWalk() {
+    const walkingValue = walking.value
+    const walkingDistance = distanceValue * 4
 
-    console.log(tipAmount)
-    console.log(totalAmount)
-    
-    display.innerHTML = tipAmount.toFixed(2)
-    total.innerHTML = totalAmount.toFixed(2)
-    
+    display.innerHTML = walkingDistance.toFixed(2)
+
 }
+function calculateDrive() {
+    const drivingValue = driving.value
+    const drivingDistance = distanceValue + 70
 
-calculateTip()
+    display.innerHTML = drivingDistance.toFixed(2)
 
-billInput.addEventListener('input', calculateTip)
-tipInput.addEventListener('input', calculateTip)
-peopleInput.addEventListener('input', calculateTip)
+}
+function calculateFly() {
+    const flyingValue = flying.value
+    const flyingDistance = distanceValue + 575
+
+    display.innerHTML = flyingDistance.toFixed(2)
+
+}
+calculateDistance()
+
+//Event listeners here
