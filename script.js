@@ -33,6 +33,5 @@ function calculateFly() {
     display.innerHTML = flyingDistance.toFixed(2)
 
 }
-calculateDistance()
 
 //Event listeners here
